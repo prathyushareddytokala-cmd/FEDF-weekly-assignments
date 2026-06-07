@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Registration Form</title>
+<style>
+body { font-family: Arial; background:#f4f4f4; }
+form { background:grey; padding:20px; width:350px; margin:auto; border-radius:8px; }
+input, select, textarea { width:100%; margin:5px 0; padding:8px; }
+button { padding:10px; margin-top:10px; }
+</style>
+</head>
+
+<body>
+
+<form>
+<fieldset>
+<legend>Student Registration</legend>
+
+<label>Full Name</label>
+<input type="text" required>
+
+<label>Email</label>
+<input type="email" required>
+
+<label>Password</label>
+<input type="password" required>
+
+<label>Date of Birth</label>
+<input type="date">
+
+<label>Gender</label>
+<input type="radio" name="Male"> Male
+<input type="radio" name="Female"> Female
+
+<label>Course</label>
+<select>
+<option>B.Tech</option>
+<option>BCA</option>
+</select>
+
+<label>Skills</label>
+<input type="checkbox"> HTML
+<input type="checkbox"> CSS
+
+<label>Address</label>
+<textarea></textarea>
+
+<button type="submit">Submit</button>
+<button type="reset">Reset</button>
+
+</fieldset>
+</form>
+
+</body>
+</html>

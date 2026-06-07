@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>College Time Table</title>
+
+<style>
+body { font-family: Arial; }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background: #333;
+    color: white;
+    
+}
+
+.day{
+    background-color: grey;
+}
+
+caption {
+    font-size: 20px;
+    margin: 10px;
+    font-weight: bold;
+}
+
+.lunch {
+    background-color:pink;
+    font-weight: bold;
+}
+</style>
+
+</head>
+
+<body>
+
+<table>
+
+<caption>Weekly College Time Table</caption>
+
+<tr>
+<th>Day</th>
+<th>1-2</th>
+<th>3-4</th>
+<th>Break</th>
+<th>5-6</th>
+<th>7-8</th>
+</tr>
+
+<tr>
+<td class="day">Monday</td>
+<td>Math</td>
+<td>DSA</td>
+<td class="lunch" rowspan="6">Lunch</td>
+<td>CFAI</td>
+<td>English</td>
+</tr>
+
+<tr>
+<td class="day">Tuesday</td>
+<td>English</td>
+<td>Math</td>
+<td>Lab</td>
+<td>Sports</td>
+</tr>
+
+<tr>
+<td class="day">Wednesday</td>
+<td>CS</td>
+<td>Math</td>
+<td>CFAI</td>
+<td>Library</td>
+</tr>
+
+<tr>
+<td class="day">Thursday</td>
+<td>Math</td>
+<td>CS</td>
+<td>FEDF</td>
+<td colspan="2">Lab</td>
+</tr>
+
+<tr>
+<td class="day">Friday</td>
+<td>Math</td>
+<td>CS</td>
+<td>FEDF</td>
+<td>Seminar</td>
+</tr>
+
+<tr>
+<td class="day">Saturday</td>
+<td>Math</td>
+<td>DSA</td>
+<td>CS</td> 
+<td colspan="2">Workshop</td>
+</tr>
+
+</table>
+
+</body>
+</html>
