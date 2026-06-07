@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<button onclick="shuffleDeck()">Shuffle</button>
+
+<pre id="output"></pre>
+
+<script>
+function shuffleDeck() {
+
+  let suits = ["Hearts", "Diamonds", "Clubs", "Spades"];
+  let values = ["A","2","3","4","5","6","7","8","9","10","J","Q","K"];
+
+  let deck = [];
+
+  for (let i = 0; i < suits.length; i++) {
+    for (let j = 0; j < values.length; j++) {
+      deck.push(values[j] + " of " + suits[i]);
+    }
+  }
+
+  for (let i = deck.length - 1; i > 0; i--) {
+    let j = Math.floor(Math.random() * (i + 1));
+
+    let temp = deck[i];
+    deck[i] = deck[j];
+    deck[j] = temp;
+  }
+
+  let text = "[\n";
+  for (let i = 0; i < deck.length; i++) {
+    text += "  '" + deck[i] + "',\n";
+  }
+  text += "]";
+
+  document.getElementById("output").innerText = text;
+}
+</script>
+</body>
+</html>

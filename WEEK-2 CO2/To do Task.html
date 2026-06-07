@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>To-Do App</title>
+  <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+      background: #eef;
+    }
+    .container {
+      background: white;
+      width: 300px;
+      margin: 50px auto;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    input {
+      padding: 8px;
+      width: 70%;
+    }
+    button {
+      padding: 8px;
+      margin-left: 5px;
+    }
+    li {
+      list-style: none;
+      margin: 10px 0;
+      display: flex;
+      justify-content: space-between;
+    }
+    .done {
+      text-decoration: line-through;
+      color: gray;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>To-Do List</h2>
+  <input type="text" id="taskInput" placeholder="Enter task">
+  <button onclick="addTask()">Add</button>
+  <ul id="list"></ul>
+</div>
+
+<script>
+  function addTask() {
+    let input = document.getElementById("taskInput");
+    let task = input.value;
+
+    if (task === "") return;
+
+    let li = document.createElement("li");
+
+    li.innerHTML = `
+      <span onclick="toggleTask(this)">${task}</span>
+      <button onclick="deleteTask(this)">X</button>
+    `;
+
+    document.getElementById("list").appendChild(li);
+    input.value = "";
+  }
+
+  function deleteTask(btn) {
+    btn.parentElement.remove();
+  }
+
+  function toggleTask(el) {
+    el.classList.toggle("done");
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<button onclick="test()">Test LRU</button>
+<p id="out"></p>
+
+<script>
+class LRU{
+ constructor(size){
+  this.size=size;
+  this.cache=new Map();
+ }
+
+ get(key){
+  if(!this.cache.has(key)) return "Not Found";
+  let val=this.cache.get(key);
+  this.cache.delete(key);
+  this.cache.set(key,val);
+  return val;
+ }
+
+ put(key,val){
+  if(this.cache.has(key)) this.cache.delete(key);
+  else if(this.cache.size>=this.size){
+   let first=this.cache.keys().next().value;
+   this.cache.delete(first);
+  }
+  this.cache.set(key,val);
+ }
+}
+
+function test(){
+ let l=new LRU(2);
+ l.put(1,"A");
+ l.put(2,"B");
+ l.get(1);
+ l.put(3,"C");
+ out.innerText=JSON.stringify([...l.cache]);
+}
+</script>
+</body>
+</html>

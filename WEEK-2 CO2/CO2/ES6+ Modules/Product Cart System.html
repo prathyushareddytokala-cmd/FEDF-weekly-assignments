@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Product Cart System</title>
+</head>
+<body>
+
+<h2>Shopping Cart</h2>
+<div id="output"></div>
+
+<script>
+  // Product lists
+  const cart1 = [
+    { name: "Laptop", price: 50000 },
+    { name: "Mouse", price: 500 }
+  ];
+
+  const cart2 = [
+    { name: "Keyboard", price: 1500 },
+    { name: "Headphones", price: 2000 }
+  ];
+
+  // Merge carts using spread operator
+  const finalCart = [...cart1, ...cart2];
+
+  // Arrow function to calculate total price
+  const getTotal = (cart) => {
+    return cart.reduce((sum, item) => sum + item.price, 0);
+  };
+
+  // Display cart details using destructuring + template literals
+  const displayCart = (cart) => {
+    let output = "";
+
+    cart.forEach(({ name, price }) => {
+      output += `<p>Product: ${name} | Price: ₹${price}</p>`;
+    });
+
+    const total = getTotal(cart);
+
+    output += `<hr><h3>Total Price: ₹${total}</h3>`;
+    return output;
+  };
+
+  // Show in HTML
+  document.getElementById("output").innerHTML = displayCart(finalCart);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Employee Payroll</title>
+</head>
+<body>
+
+<h2>Employee Details</h2>
+<div id="output"></div>
+
+<script>
+  // Employee class
+  class Employee {
+    constructor(name, basicSalary, ...allowances) {
+      this.name = name;
+      this.basicSalary = basicSalary;
+      this.allowances = allowances;
+    }
+
+    // Arrow function to calculate total salary
+    calculateSalary = () => {
+      const totalAllowance = this.allowances.reduce((sum, val) => sum + val, 0);
+      return this.basicSalary + totalAllowance;
+    };
+
+    // Display details using template literals + destructuring
+    display() {
+      const { name, basicSalary, allowances } = this;
+      const totalSalary = this.calculateSalary();
+
+      return `
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Basic Salary:</strong> ₹${basicSalary}</p>
+        <p><strong>Allowances:</strong> ₹${allowances.join(", ₹")}</p>
+        <p><strong>Total Salary:</strong> ₹${totalSalary}</p>
+        <hr>
+      `;
+    }
+  }
+
+  // Creating employees
+  const emp1 = new Employee("Rahul", 20000, 2000, 1500, 1000);
+  const emp2 = new Employee("Anjali", 25000, 3000, 2000);
+
+  // Display output
+  const outputDiv = document.getElementById("output");
+  outputDiv.innerHTML = emp1.display() + emp2.display();
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Quote Generator</title>
+  <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+      background: #f4f4f4;
+      padding: 50px;
+    }
+    .box {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      width: 300px;
+      margin: auto;
+      box-shadow: 0 0 10px gray;
+    }
+    button {
+      margin-top: 15px;
+      padding: 10px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<div class="box">
+  <h2>Quote Generator</h2>
+  <p id="quote">Click button for a quote</p>
+  <h4 id="author"></h4>
+  <button onclick="newQuote()">New Quote</button>
+</div>
+
+<script>
+  const quotes = [
+    { text: "Stay hungry, stay foolish.", author: "Steve Jobs" },
+    { text: "Believe you can and you're halfway there.", author: "Roosevelt" },
+    { text: "Dream big and dare to fail.", author: "Norman Vaughan" }
+  ];
+
+  function newQuote() {
+    let random = Math.floor(Math.random() * quotes.length);
+    document.getElementById("quote").innerText = quotes[random].text;
+    document.getElementById("author").innerText = "- " + quotes[random].author;
+  }
+</script>
+
+</body>
+</html>

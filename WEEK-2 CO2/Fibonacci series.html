@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h3>Fibonacci Series</h3>
+
+<input id="terms" placeholder="Enter number">
+<button onclick="fib()">Find</button>
+
+<p id="out"></p>
+
+<script>
+function fib() {
+  let n = Number(document.getElementById("terms").value);
+  let a = 0, b = 1;
+  let result = "";
+
+  for (let i = 0; i < n; i++) {
+    result += a + " ";
+    let temp = a + b;
+    a = b;
+    b = temp;
+  }
+
+  document.getElementById("out").innerText = result;
+}
+</script>
+
+</body>
+</html>

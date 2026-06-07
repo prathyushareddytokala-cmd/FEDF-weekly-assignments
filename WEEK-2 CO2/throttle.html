@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<button onclick="throttled()">Click Fast</button>
+
+<p id="msg">Waiting...</p>
+
+<script>
+let lastTime = 0;
+
+function throttled() {
+  let now = Date.now();
+
+  if (now - lastTime > 2000) {
+    document.getElementById("msg").innerText = 
+      "Executed at " + new Date().toLocaleTimeString();
+
+    lastTime = now;
+  } else {
+    document.getElementById("msg").innerText = 
+      "Blocked (wait 2 sec)";
+  }
+}
+</script>
+
+</body>
+</html>
